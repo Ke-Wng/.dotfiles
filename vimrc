@@ -15,6 +15,11 @@ set nocompatible
 " Turn on syntax highlighting.
 syntax on
 
+" Set indent
+set shiftwidth=2 " 设定 << 和 >> 命令移动时的宽度为 2
+set softtabstop=2 " 使得按退格键时可以一次删掉 2 个空格
+set tabstop=2 " 设定 tab 长度为 2
+
 " Disable the default Vim startup message.
 set shortmess+=I
 
@@ -80,7 +85,17 @@ inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
-" Plugins Configuration
+" Plugins Configuration below, please put other configuration above
 " nerdtree
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
