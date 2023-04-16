@@ -1,3 +1,7 @@
 [user]
 	email = 364517893@qq.com
 	name = kewang
+[core]
+	editor = vim
+[color]
+	ui = true
