@@ -51,12 +51,18 @@ return require('packer').startup(function(use)
     "williamboman/mason-lspconfig.nvim",  -- 这个相当于mason.nvim和lspconfig的桥梁
     "neovim/nvim-lspconfig"
   }
-  -- 自动补全
+  -- Auto-complete
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
   use "L3MON4D3/LuaSnip" -- snippets引擎，不装这个自动补全会出问题
   use "saadparwaiz1/cmp_luasnip"
+  use 'hrsh7th/cmp-vsnip' -- vsnip
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-cmdline'
   use "rafamadriz/friendly-snippets"
+  -- Function Signature
+  use {"ray-x/lsp_signature.nvim"}
   -- 文件路径
   use "hrsh7th/cmp-path" -- 文件路径
   -- gcc和gc注释

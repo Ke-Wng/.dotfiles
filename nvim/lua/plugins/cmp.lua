@@ -8,7 +8,7 @@ if not snip_status_ok then
   return
 end
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load() -- load friendly-snippet
 
 -- 下面会用到这个函数
 local check_backspace = function()
@@ -20,7 +20,17 @@ end
 cmp.setup({
   snippet = {
     expand = function(args)
+      -- For `vsnip` users.
+      -- vim.fn["vsnip#anonymous"](args.body)
+
+      -- For `luasnip` users.
       require('luasnip').lsp_expand(args.body)
+
+      -- For `ultisnips` users.
+      -- vim.fn["UltiSnips#Anon"](args.body)
+
+      -- For `snippy` users.
+      -- require'snippy'.expand_snippet(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -46,7 +56,7 @@ cmp.setup({
       "s",
     }),
 
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    ["<C-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -59,13 +69,34 @@ cmp.setup({
       "s",
     }),
   }),
-
   -- 这里重要
-  sources = cmp.config.sources({
+  sources = {
     { name = 'nvim_lsp' },
+    -- For vsnip users.
+    -- { name = 'vsnip' },
+    -- For luasnip users.
     { name = 'luasnip' },
-    { name = 'path' },
-  }, {
+    --For ultisnips users.
+    -- { name = 'ultisnips' },
+    -- -- For snippy users.
+    -- { name = 'snippy' },
     { name = 'buffer' },
-  })
+    { name = 'path' },
+  }
+})
+
+-- Use buffer source for `/`.
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':'.
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+      { name = 'cmdline' }
+    })
 })
