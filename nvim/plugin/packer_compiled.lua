@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/kewang/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["monokai.nvim"] = {
+    loaded = true,
+    path = "/home/kewang/.local/share/nvim/site/pack/packer/start/monokai.nvim",
+    url = "https://github.com/tanvirtin/monokai.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/kewang/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -208,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/kewang/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/kewang/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 

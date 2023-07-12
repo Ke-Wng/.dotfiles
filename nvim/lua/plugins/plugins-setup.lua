@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
   use "christoomey/vim-tmux-navigator"
   -- Theme
   use 'Mofiqul/dracula.nvim'
+  use 'tanvirtin/monokai.nvim'
   -- State Line
   use {
     'nvim-lualine/lualine.nvim',
@@ -76,6 +77,8 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+    -- Latex
+    use "lervag/vimtex"
 
   if packer_bootstrap then
     require('packer').sync()

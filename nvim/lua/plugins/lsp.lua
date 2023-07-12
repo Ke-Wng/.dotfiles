@@ -18,15 +18,25 @@ require("mason-lspconfig").setup({
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = require("lspconfig")
 
-require("lspconfig").lua_ls.setup {
-  capabilities = capabilities,
-}
+-- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+local servers = { "clangd", "lua_ls", "pyright"}
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup({
+		-- on_attach = my_custom_on_attach,
+		capabilities = capabilities,
+	})
+end
 
-require("lspconfig").pyright.setup {
-  capabilities = capabilities,
-}
-
-require("lspconfig").clangd.setup {
-  capabilities = capabilities,
-}
+-- require("lspconfig").lua_ls.setup {
+--   capabilities = capabilities,
+-- }
+--
+-- require("lspconfig").pyright.setup {
+--   capabilities = capabilities,
+-- }
+--
+-- require("lspconfig").clangd.setup {
+--   capabilities = capabilities,
+-- }

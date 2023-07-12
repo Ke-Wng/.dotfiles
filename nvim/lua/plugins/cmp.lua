@@ -16,6 +16,7 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+local WIDE_HEIGHT = 20
 
 cmp.setup({
   snippet = {
@@ -82,7 +83,18 @@ cmp.setup({
     -- { name = 'snippy' },
     { name = 'buffer' },
     { name = 'path' },
-  }
+  },
+    window = {
+        completion = {
+            -- max_width = math.floor(WIDE_HEIGHT * (vim.o.columns / 100)),
+            max_width = 40,
+            max_height = 10,
+        },
+        documentation = {
+            max_width = 80,
+            max_height = 10,
+        },
+    },
 })
 
 -- Use buffer source for `/`.

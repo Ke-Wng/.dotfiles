@@ -16,15 +16,12 @@ set nocompatible
 syntax on
 
 " Set indent
-set shiftwidth=2 " 设定 << 和 >> 命令移动时的宽度为 2
-set softtabstop=2 " 使得按退格键时可以一次删掉 2 个空格
-set tabstop=2 " 设定 tab 长度为 2
+set shiftwidth=4" 设定 << 和 >> 命令移动时的宽度为 4
+set softtabstop=4 " 使得按退格键时可以一次删掉 4 个空格
+set tabstop=4 " 设定 tab 长度为 4
 
 " Disable the default Vim startup message.
 set shortmess+=I
-
-" Show line numbers.
-set number
 
 " This enables relative line numbering mode. With both number and
 " relativenumber enabled, the current line shows the true line number, while

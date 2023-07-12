@@ -8,12 +8,18 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
 # Path self-defined
-export PATH="/usr/share/qt/Tools/QtCreator/bin:$PATH"
-export PATH="/usr/share/qt/5.12.8/gcc_64:$PATH"
+export PATH="/home/kewang/.local/bin:$PATH"
+# Path to oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+# WSL & Windows Proxy
+host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
+export http_proxy="http://$host_ip:7890"
+export https_proxy="http://$host_ip:7890"
+# OpenCV
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+# anaconda3
+export PATH=/home/kewang/anaconda3/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -114,7 +120,24 @@ alias mars="java -jar ~/Download/Mars4_5.jar"
 alias vpn="~/Download/Clash\ for\ Windows-0.20.4-x64-linux/cfw"
 alias mips-gcc="/usr/bin/mips-linux-gnu-gcc"
 alias trash="gio-trash"
+alias vim="nvim"
+alias cp="cp -r"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/ros/noetic/setup.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kewang/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kewang/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kewang/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kewang/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

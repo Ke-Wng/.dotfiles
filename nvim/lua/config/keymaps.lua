@@ -1,4 +1,4 @@
--- <leader> used for open new windows
+-- <leader> used for opening new windows
 -- <C/A-*> used for others
 
 vim.g.mapleader = " "
@@ -27,7 +27,7 @@ keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>")
 -- bufferline
 keymap.set("n", "<A-l>", ":bnext<CR>")
 keymap.set("n", "<A-h>", ":bprevious<CR>")
-keymap.set("n", "bc", ":bdelete<CR>")
-keymap.set("n", '<C-k>', function()
-    vim.lsp.buf.signature_help()
-    end, { silent = true, noremap = true, desc = 'toggle signature' })
+keymap.set("n", "bd", ":bdelete<CR>")
+keymap.set('n', 'gD', vim.lsp.buf.declaration)
+keymap.set('n', 'gd', vim.lsp.buf.definition)
+keymap.set('n', 'gp', "<C-O>")
