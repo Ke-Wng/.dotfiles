@@ -14,8 +14,8 @@ export PATH="/home/kewang/.local/bin:$PATH"
 export ZSH="$HOME/.oh-my-zsh"
 # WSL & Windows Proxy
 host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
-export http_proxy="http://$host_ip:7890"
-export https_proxy="http://$host_ip:7890"
+# export http_proxy="http://$host_ip:7890"
+# export https_proxy="http://$host_ip:7890"
 # OpenCV
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 # anaconda3
@@ -122,6 +122,8 @@ alias mips-gcc="/usr/bin/mips-linux-gnu-gcc"
 alias trash="gio-trash"
 alias vim="nvim"
 alias cp="cp -r"
+alias setproxy="export http_proxy=http://192.168.255.1:7890; export https_proxy=http://192.168.255.1:7890"
+alias unsetproxy="unset {http,https}_proxy"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -141,3 +143,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export NEMU_HOME=/home/kewang/Templates/ics2022/nemu
+export AM_HOME=/home/kewang/Templates/ics2022/abstract-machine
