@@ -3,7 +3,7 @@
 
 # install tools
 echo "installing neccesary tools..."
-sudo apt install {git,python3,gcc,g++,cmake,unzip,curl,ninja-build,gettext,vim,zsh,tmux}
+sudo apt install {git,python3,gcc,g++,cmake,unzip,curl,ninja-build,gettext,vim,zsh,tmux,npm,nodejs}
 
 # zsh
 echo "installing zsh & oh-my-zsh..."
@@ -20,6 +20,11 @@ echo "installing neovim..."
 # cd $HOME/Downloads/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 # cd build
 # cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+
+# tldr
+echo "installing tldr"
+sudo npm install -g tldr
+tldr --update
 
 # create sybolic links
 echo "creating configure files"

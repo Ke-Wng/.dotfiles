@@ -20,6 +20,12 @@ host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 # anaconda3
 export PATH=/home/kewang/anaconda3/bin:$PATH
+# ICS2022
+export NEMU_HOME=/home/kewang/Templates/ics2022/nemu
+export AM_HOME=/home/kewang/Templates/ics2022/abstract-machine
+export NAVY_HOME=/home/kewang/Templates/ics2022/navy-apps
+# ccache
+export PATH="/usr/lib/ccache:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -143,5 +149,3 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export NEMU_HOME=/home/kewang/Templates/ics2022/nemu
-export AM_HOME=/home/kewang/Templates/ics2022/abstract-machine

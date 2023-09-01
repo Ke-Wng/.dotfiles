@@ -14,7 +14,7 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- ---------- 正常模式 ---------- ---
 -- 窗口
-keymap.set("n", "<leader>-", "<C-w>s") -- 水平新增窗口 
+keymap.set("n", "<leader>_", "<C-w>s") -- 水平新增窗口 
 keymap.set("n", "<leader>|", "<C-w>v") -- 垂直新增窗口
 -- others
 keymap.set("n", "<C-s>", ":w<CR>") -- C-v to save
